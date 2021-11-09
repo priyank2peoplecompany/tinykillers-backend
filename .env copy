@@ -1,0 +1,29 @@
+# NODE_ENV Defines the project environment 
+NODE_ENV = local
+
+# CRON_STATUS defines the cron (True - Start Cron | False - Stop the Cron)
+CRON_STATUS = true
+
+# PORT defines the port for node project to start
+PORT = 3001
+
+IP = 127.0.0.1
+BASE_URL = http://${IP}:${PORT}
+
+#EMAIL CREDENTIALS
+EMAIL = jack.bravo.7288@gmail.com
+PASS = Qwerty123@#
+
+#Encrypt/Decrypt Key
+ENABLED_ENCRTPRION = false
+SECRET_KEY = Ot89kQekeGKYFWNGSTB/sGxW694+st5Oe+g206bNttk=
+SECRET_IV = +lurlFM3+uNyuW/qoJ+ZVg==
+
+# ROOT_UPLOAD defines base path to upload 
+ROOT_UPLOAD = ./server/assets/uploads/
+
+# UPLOAD_DOC defines base path to upload all the docs
+UPLOAD_DOC =  ${BASE_URL}/uploads
+
+ASSETS_URL = ${BASE_URL}/assets/
+IMAGE_URL = ${ASSETS_URL}images/

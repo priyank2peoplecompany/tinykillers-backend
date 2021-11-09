@@ -2,4 +2,4 @@ ssh root@104.248.44.68
 
 cd /var/www/tinykillers/
 
-cp D:\tinykillers\build root@104.248.44.68:\home\tinykillers 
+scp D:\tinykillers\build root@104.248.44.68:\home\tinykillers 

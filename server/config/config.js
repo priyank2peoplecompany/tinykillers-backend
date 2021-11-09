@@ -27,8 +27,6 @@ const DB_DETAILS = {
 
 const env_db = DB_DETAILS[process.env.NODE_ENV]; 
 
-
-
 mongoose.connect(`${env_db.db_host}://${env_db.db_username}:${env_db.db_password}@tinykillers.nxvir.mongodb.net/${env_db.db_name}?retryWrites=true&w=majority`, { useUnifiedTopology: true, useNewUrlParser: true });
 var db = mongoose.connection;
 //Bind connection to error event (to get notification of connection errors)
