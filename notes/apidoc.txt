@@ -1,0 +1,20 @@
+Command :
+apidoc -f ".*\\.js$" -i server/controllers -o apidoc/ 
+
+apidoc -f ".*\\.js$" -i server/controllers -o apidoc/
+
+Mongo Import/Export
+/usr/bin/mongodump  -d gym -o /home/priyank/Desktop/Gym (location) - Export
+mongorestore -d gym /home/priyank/Desktop/Gym/gym/ (location) - Import
+
+
+mongorestore --db gym --collection trainings -c /home/priyank/Desktop/Project/Gym Document/db/trainings.bson
+mongoexport --db appbuilder --collection userscreensettings --out 
+
+
+/usr/bin/mongodump  -d gym -o /home/gymdo/mongodb-imports/CleanBackup
+
+/usr/bin/mongodump  -d gym -o /home/priyank/Desktop/Project/GymDo/db
+
+
+D:\tinykillers-backend>    const title = projectInfo.title ?? projectInfo.name ?? 'Loading...';

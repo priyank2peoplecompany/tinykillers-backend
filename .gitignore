@@ -1,0 +1,7 @@
+# npm
+node_modules
+apidoc
+.env
+.vscode/
+*.notes/*
+package-lock.json
