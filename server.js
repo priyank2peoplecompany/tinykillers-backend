@@ -14,7 +14,7 @@ app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     res.header('Access-Control-Allow-Headers', 'appid, X-Requested-With,Authorization, X-HTTP-Method-Override, Content-Type, Accept');
 
-    global.baseurl = ' http://' + req.get('host') + '/';
+    global.baseurl = ' https://' + req.get('host') + '/';
     global.assetspath = process.env.BASE_PATH;
 
     next();

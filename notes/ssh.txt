@@ -2,4 +2,12 @@ ssh root@104.248.44.68
 
 cd /var/www/tinykillers/
 
-scp D:\tinykillers\build root@104.248.44.68:\home\tinykillers 
+scp -r D:\tinykillers\build\* root@104.248.44.68:\home\tinykillers
+
+//mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+
+db.createUser({ user:"root", pwd: "root", roles: [{role: "userAdminAnyDatabase", db: "admin"}] })
+
+mongo --port 27017 -u "root" -p "root" --authenticationDatabase "tinykillers"
+
+cp -a /tinykillers/backend/. /backend/
