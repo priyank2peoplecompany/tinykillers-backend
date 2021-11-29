@@ -10,7 +10,7 @@ const DB_DETAILS = {
 	"development": {
 		"db_host": "127.0.0.1:27017",
 		"db_name": "tinykillers",
-		"db_username": "",
+		"db_username": "root",
 		"db_password": "",
 		"db_dialect": "",
 		"multipleStatements": true
@@ -29,6 +29,7 @@ const env_db = DB_DETAILS[process.env.NODE_ENV];
 
 //`mongodb+srv://tinkillers_user:3EZWfzHbFd9vfBAP@tinykillers.nxvir.mongodb.net/Tinykillers?retryWrites=true&w=majority
 mongoose.connect(`${env_db.db_host}://${env_db.db_username}:${env_db.db_password}@tinykillers.nxvir.mongodb.net/${env_db.db_name}?retryWrites=true&w=majority`, { useUnifiedTopology: true, useNewUrlParser: true });
+//mongoose.connect('mongodb://127.0.0.1:27017/tinykillers', { useUnifiedTopology: true, useNewUrlParser: true });
 var db = mongoose.connection;
 //Bind connection to error event (to get notification of connection errors)
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));

@@ -45,9 +45,7 @@ exports.ListQuiz = (req, res) => {
  * @apiGroup Quiz
  * */
 exports.checkCode = (req, res) => {
-    const required_fields = {
-        code: 'string',
-    }
+    const required_fields = { code: 'string'}
     let params = req.body;
     if (vh.validate(res, required_fields, params)) {
         if(params.code == '1234'){
@@ -104,6 +102,12 @@ exports.checkCode = (req, res) => {
                     },
                     {
                         "media_id": 4,
+                        "display_area" : 4,
+                        "preview": "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4",
+                        "content": "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4"
+                    },
+                    {
+                        "media_id": 5,
                         "display_area" : 4,
                         "preview": "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4",
                         "content": "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4"

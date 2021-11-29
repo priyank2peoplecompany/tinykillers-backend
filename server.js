@@ -54,6 +54,7 @@ global.Schema = mongoose.Schema;
 global.mongoose_delete = require('mongoose-delete');
 mongoose.set('debug', true);
 mongoose.set('useFindAndModify', false);
+mongoose.set('useUnifiedTopology', true);
 require('./server/config/config');
 global.model = require('./server/models');
 
