@@ -34,12 +34,43 @@ exports.AddUser = (req, res) => {
  * @apiName List User
  * @apiGroup User
  * */
- exports.ListUser = (req, res) => {
+exports.ListUser = (req, res) => {
     model.User.find({}).then(data => {
         cres.send(res, data, "User list successfully");
     }).catch((err) => {
         cres.error(res, "Error in user list", err);
     });
+}
+
+
+/**
+ * @api {post} /user/answer Add user quiz answer
+ * @apiName User Answer
+ * @apiGroup User
+ * @apiParam {String}  user_id          Login User Id
+ * @apiParam {String}  question_id      Question Id
+ * @apiParam {boolean} answer           Answer true/false
+ */
+ exports.QuizAnswer = (req, res) => {
+
+    const required_fields = {
+        'user_id': 'string',
+        'question_id': 'string',
+        'answer' : 'boolean'
+    }
+    let params = req.body;
+    if (vh.validate(res, required_fields, params)) {
+
+        let updateData = { question_id: params.question_id , answer : params.answer };
+        model.User.update(
+            { _id: params.user_id },
+            { $push: { quiz_answers :  updateData } }
+        ).then(data => {
+            cres.send(res, data, "User list successfully");
+        }).catch((err) => {
+            cres.error(res, "Error in user list", err);
+        });        
+    }
 }
 
 /**
@@ -49,7 +80,7 @@ exports.AddUser = (req, res) => {
  * @apiParam {String}  email        From Email Address
  * @apiParam {String}  suggestion   Suggestion
  */
- exports.sendMail = (req, res) => {
+exports.sendMail = (req, res) => {
 
     const required_fields = {
         'suggestion': 'string',
