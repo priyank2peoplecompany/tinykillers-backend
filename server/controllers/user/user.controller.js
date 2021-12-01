@@ -7,18 +7,16 @@ const ejs = require('ejs');
  * @api {post} /user/Add Add User
  * @apiName Add User
  * @apiGroup User
- * @apiParam {string}   name        Name
- * @apiParam {email}    email       Email
+ * @apiParam {string}   address     User Address
  * */
 exports.AddUser = (req, res) => {
     const required_fields = {
-        'name': 'string',
-        'email': 'email'
+        'address': 'string'
     }
     let params = req.body;
     if (vh.validate(res, required_fields, params)) {
 
-        model.User.findOneAndUpdate({ email: params.email }, params, {
+        model.User.findOneAndUpdate({ address: params.address }, params, {
             new: true,
             upsert: true // Make this update into an upsert
         }).then(data => {

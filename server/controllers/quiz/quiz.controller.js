@@ -48,6 +48,34 @@ exports.checkCode = (req, res) => {
     const required_fields = { code: 'string'}
     let params = req.body;
     if (vh.validate(res, required_fields, params)) {
+
+        //"template":{
+        //     "area1": {
+        //         "size": ["30","100"],
+        //         "bgcolor": "#e11414",
+        //         "fitting": "cover",
+        //         "position": ["0","0"]
+        //     },
+        //     "area2": {
+        //         "size": ["30","50"],
+        //         "bgcolor": "#0fc224",
+        //         "fitting": "cover",
+        //         "position": ["30","0"]
+        //     },
+        //     "area3": {
+        //         "size": ["30","50"],
+        //         "bgcolor": "#071fda",
+        //         "fitting": "cover",
+        //         "position": ["30","50"]
+        //     },
+        //     "area4": {
+        //         "size": ["40","100"],
+        //         "bgcolor": "#f2079c",
+        //         "fitting": "cover",
+        //         "position": ["60","0"]
+        //     }
+        // },
+
         if(params.code == '1234'){
             let data = {
                 "id" : 2,
@@ -57,28 +85,16 @@ exports.checkCode = (req, res) => {
                 "digital_signage" : true,
                 "template":{
                     "area1": {
-                        "size": ["30","100"],
-                        "bgcolor": "#e11414",
+                        "size": ["100","80" ],
+                        "bgcolor": "#ce09c7",
                         "fitting": "cover",
                         "position": ["0","0"]
                     },
                     "area2": {
-                        "size": ["30","50"],
-                        "bgcolor": "#0fc224",
+                        "size": ["100","20"],
+                        "bgcolor": "#d1ca05",
                         "fitting": "cover",
-                        "position": ["30","0"]
-                    },
-                    "area3": {
-                        "size": ["30","50"],
-                        "bgcolor": "#071fda",
-                        "fitting": "cover",
-                        "position": ["30","50"]
-                    },
-                    "area4": {
-                        "size": ["40","100"],
-                        "bgcolor": "#f2079c",
-                        "fitting": "cover",
-                        "position": ["60","0"]
+                        "position": ["0","80"]
                     }
                 },
                 "content":[
@@ -96,19 +112,19 @@ exports.checkCode = (req, res) => {
                     },
                     {
                         "media_id": 3,
-                        "display_area" : 3,
+                        "display_area" : 1,
                         "preview": "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
                         "content": "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4"
                     },
                     {
                         "media_id": 4,
-                        "display_area" : 4,
+                        "display_area" : 2,
                         "preview": "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4",
                         "content": "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4"
                     },
                     {
                         "media_id": 5,
-                        "display_area" : 4,
+                        "display_area" : 1,
                         "preview": "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4",
                         "content": "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4"
                     },
