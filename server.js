@@ -16,7 +16,7 @@ app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     res.header('Access-Control-Allow-Headers', 'appid, X-Requested-With,Authorization, X-HTTP-Method-Override, Content-Type, Accept');
 
-    global.baseurl = ' https://' + req.get('host') + '/';
+    global.baseurl = ' http://' + req.get('host') + '/';
     global.assetspath = process.env.BASE_PATH;
 
     next();
@@ -43,7 +43,7 @@ app.get('*', function (req, res) {
 
 require('dotenv-expand')(require('dotenv').config());
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = 1; //Added for Email SSL Cert issue
-const server = require('https').createServer(app);
+const server = require('http').createServer(app);
 
 console.log('Server Created');
 
