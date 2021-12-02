@@ -86,7 +86,7 @@ exports.sendMail = (req, res) => {
     }
     let params = req.body;
  
-    if (vh.validate(res, required_fields, params)) {
+    if (vh.validate(res, required_fields, params)) { 
 
         var transporter = nodemailer.createTransport(smtpTransport({
             service: 'gmail',
