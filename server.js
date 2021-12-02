@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const app = express(); //cors = require('cors');
+const app = express(); 
+cors = require('cors');
 
 app.use(bodyParser.json({ limit: '50mb' })); // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' })); // to support URL-encoded bodies
@@ -41,7 +42,7 @@ app.get('*', function (req, res) {
 
 require('dotenv-expand')(require('dotenv').config());
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = 1; //Added for Email SSL Cert issue
-const server = require('http').createServer(app);
+const server = require('https').createServer(app);
 
 console.log('Server Created');
 
