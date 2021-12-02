@@ -5,7 +5,7 @@ module.exports = {
 
     verify(token, callback) {
         try {
-            return jwt.verify(token, 'secret', {}, callback)
+            return jwt.verify(token, process.env.JWT_SECRET, {}, callback)
         } catch (err) {
             return 'error'
         }

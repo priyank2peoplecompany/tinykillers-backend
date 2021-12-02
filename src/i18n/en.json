@@ -1,3 +1,19 @@
 {
-	"success": "success"
+	"success": "success",
+	"userRegistrationValidationUsernameRequired": "userRegistrationValidationUsernameRequired",
+	"userRegistrationValidationLevelRequired": "userRegistrationValidationLevelRequired",
+	"userRegistrationValidationXpRequired": "userRegistrationValidationXpRequired",
+	"userRegistrationValidationTrophiesRequired": "userRegistrationValidationTrophiesRequired",
+	"userRegistrationValidationConnectedRequired": "userRegistrationValidationConnectedRequired",
+	"userRegistrationValidationSkillIdsRequired": "userRegistrationValidationSkillIdsRequired",
+	"userRegistrationValidationGoldRequired": "userRegistrationValidationGoldRequired",
+	"userRegistrationValidationOnlineRequired": "userRegistrationValidationOnlineRequired",
+	"userRegistrationValidationPasswordRequired": "userRegistrationValidationPasswordRequired",
+	"userRegistrationValidationPasswordMin": "userRegistrationValidationPasswordMin",
+	"internalError": "internalError",
+	"customerExist": "customerExist",
+	"authorizationError": "authorizationError",
+	"customerDoesnotExist": "customerDoesnotExist",
+	"invalidToken": "invalidToken",
+	"userSkillValidationSkillIdsRequired": "userSkillValidationSkillIdsRequired"
 }

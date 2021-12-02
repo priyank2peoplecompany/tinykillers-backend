@@ -26,6 +26,7 @@ module.exports = {
                                         401
                                     )
                                 } else {
+                                    req.user = result
                                     return next()
                                 }
                             })

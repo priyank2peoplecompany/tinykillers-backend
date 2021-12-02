@@ -13,7 +13,7 @@ const User = require('../models/user')
 module.exports = {
     Login: async (req, res) => {
         const reqParam = req.body
-        const user = await User.findOne({email: reqParam.email})
+        const user = await User.findOne({Username: reqParam.Username})
         if (!user) {
             return Response.successResponseWithoutData(
                 res,
@@ -31,8 +31,8 @@ module.exports = {
                             {
                                 id: user._id,
                             },
-                            'secret',
-                            {algorithm: 'HS512'}
+                            process.env.JWT_SECRET,
+                            {algorithm: process.env.JWT_ALGO}
                         )
                         user.token = token
                         return Response.successResponseData(
@@ -55,30 +55,28 @@ module.exports = {
             )
         })
     },
-    AddCustomer: async (req, res) => {
+    Regitration: async (req, res) => {
         const reqParam = req.body
         addUser(reqParam, res, async (validate) => {
             if (validate) {
+                console.log(reqParam);
                 await bcrypt.hash(reqParam.password, 10, async function (err, hash) {
 
                     User.create({
                         password: hash,
-                        Username: reqParam.username,
+                        Username: reqParam.Username,
                         skill_ids : reqParam.skill_ids,
                         level: reqParam.level,
                         xp: reqParam.xp,
                         trophies: reqParam.trophies,
-                        gold: reqParam.gold,
+                        gold: reqParam.gold,    
                         online: reqParam.online,
                         connected : reqParam.connected,
-                        email: reqParam.email,
-                        gender: reqParam.gender,
-                        mobile: reqParam.mobile
                     }).then(() => {
                         return Response.successResponseWithoutData(
                             res,
                             res.locals.__('success'),
-                            constant.SUCCESS, ``
+                            constant.SUCCESS,
                         )
                     }).catch((e) => {
                         console.log(e)

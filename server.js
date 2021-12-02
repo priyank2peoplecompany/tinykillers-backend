@@ -6,13 +6,14 @@ const bodyParser = require('body-parser')
 const db = require('./src/database/db')
 const cors = require('cors')
 
+require('dotenv').config()
+
 app.use(cors())
 app.use(i18n)
 app.use(express.static('public'))
 app.use(bodyParser.json({ limit: "50mb" }))
 app.use('/',routes)
 app.use(express.urlencoded({ extended: true }))
-
 
 app.listen(3000 , () => {
     console.log('server started.')

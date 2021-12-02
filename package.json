@@ -11,11 +11,13 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "connect": "^3.7.0",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "i18n": "^0.13.3",
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.29.1",
     "mongoose": "^6.0.14",
-    "object-transformer": "0.0.5"
+    "object-transformer": "0.0.5",
+    "socket.io": "^4.4.0"
   }
 }

@@ -1,18 +1,18 @@
 const mongoose = require('mongoose')
 
-const SkillSchema = new mongoose.Schema({
-    name: {type: String, required: true},
-}, { timestamps: true })
-
 const UserSchema = new mongoose.Schema({
-    email: {type: String, required: true, unique: true},
-    first_name: {type: String, required: true},
-    last_name: {type: String, required: true},
+    Username: {type: String, required: true, unique: true},
+    level: {type: Number, required: true},
     password: {type: String, required: true},
-    gender: {type: String, required: true},
-    image: {type: String, required: true},
-    mobile: {type: String, required: true},
-    skill: [SkillSchema]
+    xp: {type: Number, required: true},
+    trophies: {type: Number, required: true},
+    gold: {type: Number, required: true},
+    online: {type:  Boolean, required: true},
+    connected: {type: Boolean, required: true},
+    skill_ids: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:'skill'
+    },]
 }, { timestamps: true })
 
 const model = mongoose.model('user', UserSchema)

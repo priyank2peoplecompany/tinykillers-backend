@@ -5,10 +5,7 @@ const Helper = require('./helper')
 module.exports = {
     loginValidation: (req, res, callback) => {
         const schema = Joi.object({
-            email: Joi.string()
-                .email({ tlds: { allow: false } })
-                .max(200)
-                .required(),
+            Username:Joi.required(),
             password: Joi.string().trim().min(8).max(100).required(),
         })
         const { error } = schema.validate(req)
@@ -22,18 +19,14 @@ module.exports = {
     },
     addUser: (req, res, callback) => {
         const schema = Joi.object({
-            first_name:Joi.required(),
-            last_name:Joi.required(),
-            mobile:Joi.string().trim()
-                .min(5)
-                .max(15)
-                .regex(/^[0-9]*$/).required(),
-            image:Joi.string().required(),
-            gender:Joi.number().valid(1, 2, 3).required(),
-            email: Joi.string()
-                .email({ tlds: { allow: false } })
-                .max(200)
-                .required(),
+            Username:Joi.required(),
+            level:Joi.number().required(),
+            xp:Joi.number().required(),
+            trophies:Joi.number().required(),
+            connected:Joi.boolean().required(),
+            skill_ids:Joi.array().required(),
+            gold:Joi.number().required(),
+            online: Joi.boolean().required(),
             password: Joi.string().trim().min(8).max(100).required(),
         })
         const { error } = schema.validate(req)
@@ -41,6 +34,19 @@ module.exports = {
             return Response.validationErrorResponseData(
                 res,
                 res.__(Helper.validationMessageKey('userRegistrationValidation', error))
+            )
+        }
+        return callback(true)
+    },
+    addUserSkilles: (req, res, callback) => {
+        const schema = Joi.object({
+            skill_ids:Joi.array().required(),
+        })
+        const { error } = schema.validate(req)
+        if (error) {
+            return Response.validationErrorResponseData(
+                res,
+                res.__(Helper.validationMessageKey('userSkillValidation', error))
             )
         }
         return callback(true)

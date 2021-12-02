@@ -1,12 +1,13 @@
 module.exports = {
     detail: {
         id:'id',
-        first_name: 'first_name',
-        last_name: 'last_name',
-        email: 'email',
-        mobile: 'mobile',
-        image: 'image',
-        gender: 'gender',
+        Username: 'Username',
+        xp: 'xp',
+        trophies: 'trophies',
+        gold: 'mgoldobile',
+        online: 'online',
+        connected: 'connected',
+        skill_ids: 'skill_ids',
         token: 'token'
     },
 }
