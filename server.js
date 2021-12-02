@@ -1,11 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express(); 
-cors = require('cors');
+const cors = require('cors')
+
 
 app.use(bodyParser.json({ limit: '50mb' })); // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' })); // to support URL-encoded bodies
-
+app.use(cors())
 
 app.set('view engine', 'ejs');
 app.use(function (req, res, next) {
