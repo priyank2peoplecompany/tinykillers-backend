@@ -7,6 +7,10 @@ const db = require('./src/database/db')
 const cors = require('cors')
 
 require('dotenv').config()
+var http = require('http').createServer(app);
+var io = require('socket.io')(http);
+require('./src/sockets/playerConnection')(io)
+
 
 app.use(cors())
 app.use(i18n)
@@ -15,6 +19,8 @@ app.use(bodyParser.json({ limit: "50mb" }))
 app.use('/',routes)
 app.use(express.urlencoded({ extended: true }))
 
-app.listen(3000 , () => {
-    console.log('server started.')
-})
+// app.listen(3000 , () => {
+//     console.log('server started.')
+// })
+
+http.listen(8000, () => console.log('serverstarte on : 8000'));

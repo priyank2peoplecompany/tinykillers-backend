@@ -1,8 +1,5 @@
 const bcrypt = require('bcrypt');
-const moment = require('moment')
 const Response = require('../services/response')
-const fs = require('fs');
-const path = require('path')
 const Transformer = require('object-transformer')
 const jwt = require('jsonwebtoken')
 const user_transformer = require('../transformers/user')
@@ -59,7 +56,6 @@ module.exports = {
         const reqParam = req.body
         addUser(reqParam, res, async (validate) => {
             if (validate) {
-                console.log(reqParam);
                 await bcrypt.hash(reqParam.password, 10, async function (err, hash) {
 
                     User.create({
