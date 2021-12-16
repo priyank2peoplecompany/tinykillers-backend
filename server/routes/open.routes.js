@@ -8,7 +8,6 @@ const routes = [
     //Quiz
     Router.post("/quiz/add", openAuthentication, controllers.quiz.AddQuiz),
     Router.get("/quiz/list", openAuthentication, controllers.quiz.ListQuiz),
-    Router.post("/quiz/code", openAuthentication, controllers.quiz.checkCode),
     
     //User
     Router.post("/user/add", openAuthentication, controllers.user.AddUser),

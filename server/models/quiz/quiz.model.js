@@ -27,6 +27,6 @@ const QuizSchema = new Schema({
 
 QuizSchema.plugin(mongoose_delete, { deletedBy: false });
 
-const Quiz = mongoose.model('questions', QuizSchema);
+const Quiz = mongoose.model('question', QuizSchema);
 
 module.exports = Quiz;

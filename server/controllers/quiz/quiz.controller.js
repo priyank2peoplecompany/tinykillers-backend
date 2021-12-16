@@ -3,18 +3,15 @@
  * @apiName Add Quiz 
  * @apiGroup Quiz
  * @apiParam {string}   question    Quiz question
- * @apiParam {array}    options     Quiz  question options ( [option 1 ,Option 2 ,Option 3,option 4])
- * @apiParam {string}   answer      Add correct answer ( Option 3);
+ * @apiParam {array}    options     Quiz  question options ( [{"answer" : "Answer 1","point" : 5},{"answer" : "Answer 2","point" : 4}])
  * */
 exports.AddQuiz = (req, res) => {
     const required_fields = {
         question: 'string',
-        answer: 'string',
         options : 'array'
     }
     let params = req.body;
     if (vh.validate(res, required_fields, params)) {
-        console.log("here===>");
         model.Quiz.findOneAndUpdate({ question: params.question }, params, {
             new: true,
             upsert: true // Make this update into an upsert
