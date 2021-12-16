@@ -15,13 +15,18 @@ const UserSchema = new Schema({
         question_id: {
             type: mongoose.Schema.Types.ObjectId,
             default: null,
-            ref:'quiz_question'
+            ref:'question'
         },
         answer:{
-            type: Boolean,
-            default: false
+            type: mongoose.Schema.Types.ObjectId,
+            default: null,
+            ref:'question'
         }
-    }]
+    }],
+    total: {
+        type: Number,
+        default: 0
+    }    
 }, {
     timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' },
     versionKey: false,
@@ -32,6 +37,8 @@ const UserSchema = new Schema({
         getters: true
     },
 }
+
+
 );
 
 UserSchema.plugin(mongoose_delete, { deletedBy: false });

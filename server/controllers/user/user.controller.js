@@ -45,29 +45,41 @@ exports.ListUser = (req, res) => {
  * @api {post} /user/answer Add user quiz answer
  * @apiName User Answer
  * @apiGroup User
- * @apiParam {String}  user_id          Login User Id
- * @apiParam {String}  question_id      Question Id
- * @apiParam {boolean} answer           Answer true/false
+ * @apiParam {String}   user_id          Login User Id
+ * @apiParam {String}   question_id      Question Id
+ * @apiParam {String}   answer           Answer Id
  */
  exports.QuizAnswer = (req, res) => {
 
     const required_fields = {
         'user_id': 'string',
         'question_id': 'string',
-        'answer' : 'boolean'
+        'answer' : 'string'
     }
     let params = req.body;
     if (vh.validate(res, required_fields, params)) {
 
-        let updateData = { question_id: params.question_id , answer : params.answer };
-        model.User.update(
-            { _id: params.user_id },
-            { $push: { quiz_answers :  updateData } }
-        ).then(data => {
-            cres.send(res, data, "User list successfully");
+        let answer = params.answer;
+        let question_id = params.question_id;
+        model.Quiz.find({'_id': question_id , 'options._id' : answer},{ 'options.$': 1 }).then(quizData => {
+            let point = quizData[0].options[0].point;
+            let updateData = { question_id: params.question_id , answer : params.answer };
+            model.User.update(
+                { _id: params.user_id },
+                { 
+                    $inc: { total: parseInt(point) },
+                    $push: { quiz_answers :  updateData } 
+                }
+            ).then(data => {
+                cres.send(res, data, "Answer added successfully");
+            }).catch((err) => {
+                cres.error(res, "Error in user list", err);
+            }); 
         }).catch((err) => {
-            cres.error(res, "Error in user list", err);
-        });        
+            console.log(err,"err===");
+            cres.error(res, "Error in quiz list", err);
+        });
+        
     }
 }
 
@@ -122,4 +134,24 @@ exports.sendMail = (req, res) => {
             }
         });
     }
+}
+
+function getClan(total){
+
+    if(total >= 5 && total <= 9 ){
+        return 'TOZAWA CLAN';
+    }
+    else if(total >= 10 && total <= 13 ){
+        return 'KUSAKI CLAN';
+    }
+    else if(total >= 14 && total <= 17 ){
+        return 'ASAGO CLAN';
+    }
+    else if(total >= 18 && total <= 21 ){
+        return 'SAKEDA CLAN';
+    }
+    else if(total >= 22 && total <= 25 ){
+        return 'KAJIWARA CLAN';
+    }
+
 }
