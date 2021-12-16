@@ -40,7 +40,6 @@ exports.ListUser = (req, res) => {
     });
 }
 
-
 /**
  * @api {post} /user/answer Add user quiz answer
  * @apiName User Answer
@@ -63,23 +62,32 @@ exports.ListUser = (req, res) => {
         let question_id = params.question_id;
         model.Quiz.find({'_id': question_id , 'options._id' : answer},{ 'options.$': 1 }).then(quizData => {
             let point = quizData[0].options[0].point;
-            let updateData = { question_id: params.question_id , answer : params.answer };
-            model.User.update(
-                { _id: params.user_id },
-                { 
-                    $inc: { total: parseInt(point) },
-                    $push: { quiz_answers :  updateData } 
-                }
-            ).then(data => {
-                cres.send(res, data, "Answer added successfully");
-            }).catch((err) => {
-                cres.error(res, "Error in user list", err);
-            }); 
+            if(quizData && point > 0){
+                let updateData = { question_id: params.question_id , answer : params.answer };
+                model.User.findOneAndUpdate(
+                    { _id: params.user_id }, 
+                    { 
+                        $inc: { total: parseInt(point) },
+                        $push: { quiz_answers :  updateData } 
+                    }, 
+                    {
+                        new: false,
+                        upsert: false // Make this update into an upsert
+                    }
+                ).then(data => {
+                    updateClan(params.user_id,parseInt(point) + parseInt(data.total))
+                    cres.send(res, data, "Answer added successfully");
+                }).catch((err) => {
+                    cres.error(res, "Error in adding answer", err);
+                });
+            }
+            else{
+                cres.error(res, "Please check your question or answer ids");
+            }
         }).catch((err) => {
             console.log(err,"err===");
             cres.error(res, "Error in quiz list", err);
-        });
-        
+        });        
     }
 }
 
@@ -136,22 +144,30 @@ exports.sendMail = (req, res) => {
     }
 }
 
-function getClan(total){
+function updateClan(user_id,total){
 
-    if(total >= 5 && total <= 9 ){
-        return 'TOZAWA CLAN';
+    let clan = '';
+    if(total >= 1 && total <= 9 ){
+        clan = 'TOZAWA CLAN';
     }
     else if(total >= 10 && total <= 13 ){
-        return 'KUSAKI CLAN';
+        clan = 'KUSAKI CLAN';
     }
     else if(total >= 14 && total <= 17 ){
-        return 'ASAGO CLAN';
+        clan = 'ASAGO CLAN';
     }
     else if(total >= 18 && total <= 21 ){
-        return 'SAKEDA CLAN';
+        clan = 'SAKEDA CLAN';
     }
     else if(total >= 22 && total <= 25 ){
-        return 'KAJIWARA CLAN';
+        clan = 'KAJIWARA CLAN';
     }
 
+    model.User.update(
+        { _id: user_id }, { clan }
+    ).then(data => {
+        console.log("Clan updated successfully",data);
+    }).catch((err) => {
+        console.log("Error in updating clan", err);
+    });
 }

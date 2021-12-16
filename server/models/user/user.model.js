@@ -11,6 +11,10 @@ const UserSchema = new Schema({
         type: String,
         default: ''
     },
+    clan: {
+        type: String,
+        default: ''
+    },
     quiz_answers:[{
         question_id: {
             type: mongoose.Schema.Types.ObjectId,
@@ -37,8 +41,6 @@ const UserSchema = new Schema({
         getters: true
     },
 }
-
-
 );
 
 UserSchema.plugin(mongoose_delete, { deletedBy: false });
