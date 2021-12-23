@@ -1,0 +1,75 @@
+{
+    "dna": "010211hhh1500h1112",
+    "name": "#5",
+    "description": "This NFT was created by La Bomba",
+    "image": "https://api.tinykillers.com/nft/sakeda/killer5.jpg",
+    "website": "https://tinykillers.com/",
+    "edition": "Samurai Edition",
+    "date": "12/23/2021, 08:35:29",
+    "attributes": [
+        {
+            "trait_type": "Faction",
+            "value": "Sakeda"
+        },
+        {
+            "trait_type": "Pose",
+            "value": "Profile.001"
+        },
+        {
+            "trait_type": "Skin Color",
+            "value": "Skin_2"
+        },
+        {
+            "trait_type": "Eyes Type",
+            "value": "Eyes 2"
+        },
+        {
+            "trait_type": "Eyes Color",
+            "value": "Eyes_05"
+        },
+        {
+            "trait_type": "Mask Type",
+            "value": "Half Mask"
+        },
+        {
+            "trait_type": "Mask",
+            "value": "Sakeda_HalfMask 2"
+        },
+        {
+            "trait_type": "Helmet",
+            "value": "None"
+        },
+        {
+            "trait_type": "Beard",
+            "value": "None"
+        },
+        {
+            "trait_type": "Hair",
+            "value": "No Hair"
+        },
+        {
+            "trait_type": "Hair Color",
+            "value": "None"
+        },
+        {
+            "trait_type": "Shoulders",
+            "value": "Sakeda_Shoulders 1"
+        },
+        {
+            "trait_type": "Armor",
+            "value": "None"
+        },
+        {
+            "trait_type": "Body",
+            "value": "Suit02"
+        },
+        {
+            "trait_type": "Shoes",
+            "value": "Feet 3"
+        },
+        {
+            "trait_type": "Weapon",
+            "value": "Weapon07.L"
+        }
+    ]
+}

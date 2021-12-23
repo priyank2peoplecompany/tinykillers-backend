@@ -1,0 +1,75 @@
+{
+    "dna": "154hhh2h160hh062",
+    "name": "#2",
+    "description": "This NFT was created by La Bomba",
+    "image": "https://api.tinykillers.com/nft/asago/killer2.jpg",
+    "website": "https://tinykillers.com/",
+    "edition": "Samurai Edition",
+    "date": "12/23/2021, 08:34:06",
+    "attributes": [
+        {
+            "trait_type": "Faction",
+            "value": "Asago"
+        },
+        {
+            "trait_type": "Pose",
+            "value": "Falling"
+        },
+        {
+            "trait_type": "Skin Color",
+            "value": "Skin_3"
+        },
+        {
+            "trait_type": "Eyes Type",
+            "value": "Eyes 2"
+        },
+        {
+            "trait_type": "Eyes Color",
+            "value": "Eyes_06"
+        },
+        {
+            "trait_type": "Mask Type",
+            "value": "No Mask"
+        },
+        {
+            "trait_type": "Mask",
+            "value": "None"
+        },
+        {
+            "trait_type": "Helmet",
+            "value": "None"
+        },
+        {
+            "trait_type": "Beard",
+            "value": "None"
+        },
+        {
+            "trait_type": "Hair",
+            "value": "Beard 6"
+        },
+        {
+            "trait_type": "Hair Color",
+            "value": "Feet_Red"
+        },
+        {
+            "trait_type": "Shoulders",
+            "value": "None"
+        },
+        {
+            "trait_type": "Armor",
+            "value": "None"
+        },
+        {
+            "trait_type": "Body",
+            "value": "Body.001"
+        },
+        {
+            "trait_type": "Shoes",
+            "value": "Feet 3"
+        },
+        {
+            "trait_type": "Weapon",
+            "value": "Weapon05.R"
+        }
+    ]
+}

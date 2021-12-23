@@ -1,0 +1,75 @@
+{
+    "dna": "443hhh12260000192",
+    "name": "#3",
+    "description": "This NFT was created by La Bomba",
+    "external_url": "https://api.tinykillers.com/nft/kusaki/killer3.jpg",
+    "website": "https://tinykillers.com/",
+    "edition": "Samurai Edition",
+    "date": "12/23/2021, 08:35:50",
+    "attributes": [
+        {
+            "trait_type": "Faction",
+            "value": "Kusaki"
+        },
+        {
+            "trait_type": "Pose",
+            "value": "Jumping"
+        },
+        {
+            "trait_type": "Skin Color",
+            "value": "Skin_3"
+        },
+        {
+            "trait_type": "Eyes Type",
+            "value": "Eyes 2"
+        },
+        {
+            "trait_type": "Eyes Color",
+            "value": "Eyes_06"
+        },
+        {
+            "trait_type": "Mask Type",
+            "value": "No Mask"
+        },
+        {
+            "trait_type": "Mask",
+            "value": "None"
+        },
+        {
+            "trait_type": "Helmet",
+            "value": "None"
+        },
+        {
+            "trait_type": "Beard",
+            "value": "Beard 3"
+        },
+        {
+            "trait_type": "Hair",
+            "value": "Beard 3"
+        },
+        {
+            "trait_type": "Hair Color",
+            "value": "Hair_Black.001"
+        },
+        {
+            "trait_type": "Shoulders",
+            "value": "Kusaki_Shoulders 1"
+        },
+        {
+            "trait_type": "Armor",
+            "value": "Kusaki_Armor 1"
+        },
+        {
+            "trait_type": "Body",
+            "value": "Body.004"
+        },
+        {
+            "trait_type": "Shoes",
+            "value": "Feet 3"
+        },
+        {
+            "trait_type": "Weapon",
+            "value": "Weapon11.L"
+        }
+    ]
+}

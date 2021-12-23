@@ -1,0 +1,75 @@
+{
+    "dna": "2103000hh160000216",
+    "name": "#1",
+    "description": "This NFT was created by La Bomba",
+    "external_url": "https://api.tinykillers.com/nft/kajiwara/killer1.jpg",
+    "image": "killer1",
+    "edition": "Samurai Edition",
+    "date": "12/23/2021, 08:33:54",
+    "attributes": [
+        {
+            "trait_type": "Faction",
+            "value": "Kajiwara"
+        },
+        {
+            "trait_type": "Pose",
+            "value": "Profile.001"
+        },
+        {
+            "trait_type": "Skin Color",
+            "value": "Skin_3"
+        },
+        {
+            "trait_type": "Eyes Type",
+            "value": "Eyes 2"
+        },
+        {
+            "trait_type": "Eyes Color",
+            "value": "Eyes_06"
+        },
+        {
+            "trait_type": "Mask Type",
+            "value": "Full Mask"
+        },
+        {
+            "trait_type": "Mask",
+            "value": "Kajiwara_FullMask 1"
+        },
+        {
+            "trait_type": "Helmet",
+            "value": "Kajiwara_Helmet 1"
+        },
+        {
+            "trait_type": "Beard",
+            "value": "None"
+        },
+        {
+            "trait_type": "Hair",
+            "value": "No Hair"
+        },
+        {
+            "trait_type": "Hair Color",
+            "value": "None"
+        },
+        {
+            "trait_type": "Shoulders",
+            "value": "Kajiwara_Shoulders 1"
+        },
+        {
+            "trait_type": "Armor",
+            "value": "Kajiwara_Armor 1"
+        },
+        {
+            "trait_type": "Body",
+            "value": "Body.002"
+        },
+        {
+            "trait_type": "Shoes",
+            "value": "Feet 7"
+        },
+        {
+            "trait_type": "Weapon",
+            "value": "Weapon12.L"
+        }
+    ]
+}

@@ -1,0 +1,75 @@
+{
+    "dna": "352hhh74210000252",
+    "name": "#4",
+    "description": "This NFT was created by La Bomba",
+    "image": "https://api.tinykillers.com/nft/tozawa/killer4.jpg",
+    "website": "https://tinykillers.com/",
+    "edition": "Samurai Edition",
+    "date": "12/23/2021, 08:34:35",
+    "attributes": [
+        {
+            "trait_type": "Faction",
+            "value": "Tozawa"
+        },
+        {
+            "trait_type": "Pose",
+            "value": "Falling"
+        },
+        {
+            "trait_type": "Skin Color",
+            "value": "Skin_2"
+        },
+        {
+            "trait_type": "Eyes Type",
+            "value": "Eyes 2"
+        },
+        {
+            "trait_type": "Eyes Color",
+            "value": "Eyes_01"
+        },
+        {
+            "trait_type": "Mask Type",
+            "value": "No Mask"
+        },
+        {
+            "trait_type": "Mask",
+            "value": "None"
+        },
+        {
+            "trait_type": "Helmet",
+            "value": "None"
+        },
+        {
+            "trait_type": "Beard",
+            "value": "Beard 5"
+        },
+        {
+            "trait_type": "Hair",
+            "value": "Beard 5"
+        },
+        {
+            "trait_type": "Hair Color",
+            "value": "Hair_Black.001"
+        },
+        {
+            "trait_type": "Shoulders",
+            "value": "Tozawa_Shoulders 1"
+        },
+        {
+            "trait_type": "Armor",
+            "value": "Tozawa_Armor 1"
+        },
+        {
+            "trait_type": "Body",
+            "value": "Body.003"
+        },
+        {
+            "trait_type": "Shoes",
+            "value": "Feet 3"
+        },
+        {
+            "trait_type": "Weapon",
+            "value": "Weapon14.L"
+        }
+    ]
+}
