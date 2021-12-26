@@ -54,7 +54,7 @@ exports.ListUser = (req, res) => {
     }
     let params = req.body;
     if (vh.validate(res, required_fields, params)) {
-        model.User.find({_id : Mongoose.object(params.id)}).then(data => {
+        model.User.find({_id : mongoose.Types.ObjectId(params.id)}).then(data => {
             cres.send(res, data, "User list successfully");
         }).catch((err) => {
             cres.error(res, "Error in user list", err);
