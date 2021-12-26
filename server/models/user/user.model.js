@@ -1,3 +1,5 @@
+const { Timestamp } = require("mongodb");
+
 const UserSchema = new Schema({
     name: {
         type: String,
@@ -15,6 +17,10 @@ const UserSchema = new Schema({
         type: String,
         default: ''
     },
+    total_mint: {
+        type: Number,
+        default: 0
+    },
     quiz_answers:[{
         question_id: {
             type: mongoose.Schema.Types.ObjectId,
@@ -27,8 +33,12 @@ const UserSchema = new Schema({
             ref:'question'
         }
     }],
-    total: {
+    total_point: {
         type: Number,
+        default: 0
+    },
+    last_answer_time: {
+        type: Timestamp,
         default: 0
     }    
 }, {

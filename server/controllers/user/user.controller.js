@@ -2,6 +2,7 @@ const path = require('path');
 const nodemailer = require('nodemailer');
 const smtpTransport = require('nodemailer-smtp-transport');
 const ejs = require('ejs');
+const { Mongoose } = require('mongoose');
 
 /**
  * @api {post} /user/Add Add User
@@ -40,6 +41,27 @@ exports.ListUser = (req, res) => {
     });
 }
 
+
+/**
+ * @api {post} /user/details User Details
+ * @apiName User Details
+ * @apiParam {String}   id          Login User Id 
+ * @apiGroup User
+ * */
+ exports.DetailUser = (req, res) => {
+    const required_fields = {
+        'id': 'string',
+    }
+    let params = req.body;
+    if (vh.validate(res, required_fields, params)) {
+        model.User.find({_id : Mongoose.object(params.id)}).then(data => {
+            cres.send(res, data, "User list successfully");
+        }).catch((err) => {
+            cres.error(res, "Error in user list", err);
+        });
+    }
+}
+
 /**
  * @api {post} /user/answer Add user quiz answer
  * @apiName User Answer
@@ -47,13 +69,14 @@ exports.ListUser = (req, res) => {
  * @apiParam {String}   user_id          Login User Id
  * @apiParam {String}   question_id      Question Id
  * @apiParam {String}   answer           Answer Id
+ * @apiParam {String}   mint             Total Selected Mint
  */
  exports.QuizAnswer = (req, res) => {
-
     const required_fields = {
         'user_id': 'string',
         'question_id': 'string',
-        'answer' : 'string'
+        'answer' : 'string',
+        'mint' : 'integer'
     }
     let params = req.body;
     if (vh.validate(res, required_fields, params)) {
@@ -66,8 +89,10 @@ exports.ListUser = (req, res) => {
                 let updateData = { question_id: params.question_id , answer : params.answer };
                 model.User.findOneAndUpdate(
                     { _id: params.user_id }, 
-                    { 
-                        $inc: { total: parseInt(point) },
+                    {
+                        total_mint: params.mint, 
+                        last_answer_time: + new Date(),
+                        $inc: { total_point: parseInt(point) },
                         $push: { quiz_answers :  updateData } 
                     }, 
                     {
@@ -75,7 +100,7 @@ exports.ListUser = (req, res) => {
                         upsert: false // Make this update into an upsert
                     }
                 ).then(data => {
-                    updateClan(params.user_id,parseInt(point) + parseInt(data.total))
+                    updateClan(params.user_id,parseInt(point) + parseInt(data.total_point))
                     cres.send(res, data, "Answer added successfully");
                 }).catch((err) => {
                     cres.error(res, "Error in adding answer", err);

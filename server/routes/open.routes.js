@@ -12,6 +12,7 @@ const routes = [
     //User
     Router.post("/user/add", openAuthentication, controllers.user.AddUser),
     Router.get("/user/list", openAuthentication, controllers.user.ListUser),
+    Router.post("/user/details", openAuthentication, controllers.user.DetailUser),
     Router.post("/user/answer", openAuthentication, controllers.user.QuizAnswer),
 
     //Suggestion Mail
