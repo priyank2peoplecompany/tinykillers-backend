@@ -70,13 +70,15 @@ exports.ListUser = (req, res) => {
  * @apiParam {String}   question_id      Question Id
  * @apiParam {String}   answer           Answer Id
  * @apiParam {String}   mint             Total Selected Mint
+ * @apiParam {Boolean}  quiz_completed   Quiz completed True/False
  */
  exports.QuizAnswer = (req, res) => {
     const required_fields = {
         'user_id': 'string',
         'question_id': 'string',
         'answer' : 'string',
-        'mint' : 'integer'
+        'mint' : 'integer',
+        'quiz_completed' : "boolean"
     }
     let params = req.body;
     if (vh.validate(res, required_fields, params)) {
@@ -90,7 +92,8 @@ exports.ListUser = (req, res) => {
                 model.User.findOneAndUpdate(
                     { _id: params.user_id }, 
                     {
-                        total_mint: params.mint, 
+                        total_mint: params.mint,
+                        quiz_completed : params.quiz_completed, 
                         last_answer_time: + new Date(),
                         $inc: { total_point: parseInt(point) },
                         $push: { quiz_answers :  updateData } 

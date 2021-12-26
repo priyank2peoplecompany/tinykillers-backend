@@ -33,6 +33,10 @@ const UserSchema = new Schema({
             ref:'question'
         }
     }],
+    quiz_completed: {
+        type: Boolean,
+        default: false
+    },
     total_point: {
         type: Number,
         default: 0
