@@ -72,7 +72,7 @@ exports.ListUser = (req, res) => {
  * @apiParam {String}   mint             Total Selected Mint
  * @apiParam {Boolean}  quiz_completed   Quiz completed True/False
  */
- exports.QuizAnswer = (req, res) => {
+ exports.QuizAnswer = (req, res) => { 
     const required_fields = {
         'user_id': 'string',
         'question_id': 'string',
