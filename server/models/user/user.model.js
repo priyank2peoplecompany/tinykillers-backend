@@ -42,7 +42,7 @@ const UserSchema = new Schema({
         default: 0
     },
     last_answer_time: {
-        type: Timestamp,
+        type: String,
         default: 0
     }    
 }, {
